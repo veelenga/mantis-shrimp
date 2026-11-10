@@ -3,11 +3,8 @@
   <h1>MantisShrimp</h1>
   <p><strong>Don't be a shrimp.</strong></p>
   <p>A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.</p>
+  <p>Everything runs on your Mac. No frames are stored or sent anywhere.</p>
 </div>
-
-## Privacy
-
-Everything runs on your Mac. No frames are stored or sent anywhere.
 
 ## What it detects
 
@@ -21,9 +18,9 @@ Measured against your own calibrated baseline. Distance to the camera does not m
   <img src="docs/demos/head-forward.gif" width="32%" alt="Head forward">
 </p>
 
-1. 🤔 **Tilted left**: the head leans to the left.
-2. 🤔 **Tilted right**: the head leans to the right.
-3. 🐢 **Forward**: the head pushes toward the screen, or the chin drops.
+1. **Tilted left**: the head leans to the left.
+2. **Tilted right**: the head leans to the right.
+3. **Forward**: the head pushes toward the screen, or the chin drops.
 
 ### Shoulder position
 
@@ -32,20 +29,13 @@ Measured against your own calibrated baseline. Distance to the camera does not m
   <img src="docs/demos/shoulder-raised-right.gif" width="32%" alt="Right shoulder raised">
 </p>
 
-1. 🤷 **Left shoulder raised**: the left shoulder sits higher than the right.
-2. 🤷 **Right shoulder raised**: the right shoulder sits higher than the left.
+1. **Left shoulder raised**: the left shoulder sits higher than the right.
+2. **Right shoulder raised**: the right shoulder sits higher than the left.
 
 ### Body position
 
-1. 🫠 **Slouching**: the head sinks toward the shoulders.
-2. 🔍 **Leaning in**: your whole upper body moves toward the screen.
-
-## How alerts work
-
-- The menu bar figure is green when posture is good, orange when it is off, white when nobody is in frame.
-- An issue counts after 10 seconds and clears 2 seconds after you fix it.
-- One minute of bad posture within three minutes shows an orange banner. Click it to snooze for 5 minutes.
-- After 50 minutes without a 2 minute break, a banner asks you to stand up.
+1. **Slouching**: the head sinks toward the shoulders.
+2. **Leaning in**: your whole upper body moves toward the screen.
 
 ## Install
 
@@ -66,7 +56,16 @@ Or download the DMG from the [latest release](https://github.com/veelenga/mantis
 
 Either way, allow camera access on first launch, then choose **Calibrate** while sitting well. The app is signed ad hoc, so macOS asks for camera access again after each update.
 
-## Menu options
+## Usage
+
+### Alerts
+
+- The menu bar figure is green when posture is good, orange when it is off, white when nobody is in frame.
+- An issue counts after 10 seconds and clears 2 seconds after you fix it.
+- One minute of bad posture within three minutes shows an orange banner. Click it to snooze for 5 minutes.
+- After 50 minutes without a 2 minute break, a banner asks you to stand up.
+
+### Menu options
 
 | Item | What it does |
 | --- | --- |
@@ -81,12 +80,12 @@ Either way, allow camera access on first launch, then choose **Calibrate** while
 
 Escape or Cmd+W closes the Camera and Statistics windows.
 
-## Battery
+### Battery
 
 The camera runs at its lowest frame rate and posture is checked twice per second, less when nobody is there or Low Power Mode is on.
 It stops while the screen is asleep or locked.
 
-## History
+### History
 
 One JSON line per minute in `~/Library/Application Support/MantisShrimp/history/`.
 
@@ -109,6 +108,4 @@ git tag v0.2.0 && git push origin v0.2.0
 
 CI runs the tests, builds the DMG, publishes a GitHub release and updates the Homebrew formula in [veelenga/homebrew-tap](https://github.com/veelenga/homebrew-tap).
 
-## License
-
-[MIT](LICENSE)
+Released under the [MIT license](LICENSE).
