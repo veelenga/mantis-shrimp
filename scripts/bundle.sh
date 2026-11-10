@@ -7,8 +7,8 @@ BUNDLE_ID=dev.veelenga.mantisshrimp
 VERSION=${VERSION:-0.1.0}
 OUT=build/$APP_NAME.app
 
-swift build -c release
-BIN_DIR="$(swift build -c release --show-bin-path)"
+swift build -c release ${SWIFT_BUILD_FLAGS:-}
+BIN_DIR="$(swift build -c release ${SWIFT_BUILD_FLAGS:-} --show-bin-path)"
 
 ICONSET=build/AppIcon.iconset
 rm -rf "$OUT" "$ICONSET"

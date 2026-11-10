@@ -8,7 +8,7 @@ TESTING_LIBS = $(DEV_DIR)/Library/Developer/usr/lib
 TEST_FLAGS = -Xswiftc -F$(TESTING_FRAMEWORKS) -Xlinker -F$(TESTING_FRAMEWORKS) \
 	-Xlinker -rpath -Xlinker $(TESTING_FRAMEWORKS) -Xlinker -rpath -Xlinker $(TESTING_LIBS)
 
-.PHONY: build test app run install
+.PHONY: build test app dmg run install
 
 build:
 	swift build
@@ -18,6 +18,9 @@ test:
 
 app:
 	scripts/bundle.sh
+
+dmg: app
+	scripts/dmg.sh
 
 run: app
 	open $(APP)
