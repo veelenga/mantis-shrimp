@@ -30,11 +30,16 @@ Measured against your own calibrated baseline. Distance to the camera does not m
 
 ## Install
 
+With Homebrew, which builds the app on your Mac:
+
 ```sh
-make install
+brew install veelenga/tap/mantis-shrimp
+ln -sf "$(brew --prefix mantis-shrimp)/MantisShrimp.app" ~/Applications/
 ```
 
-This builds the app, copies it to `~/Applications` and opens it. Allow camera access on first launch, then choose **Calibrate** while sitting well.
+Or download the DMG from the [latest release](https://github.com/veelenga/mantis-shrimp/releases/latest). The app is not notarized, so macOS blocks the first launch. Open System Settings, Privacy & Security, and click **Open Anyway**.
+
+Either way, allow camera access on first launch, then choose **Calibrate** while sitting well. The app is signed ad hoc, so macOS asks for camera access again after each update.
 
 ## Menu options
 
@@ -66,6 +71,15 @@ One JSON line per minute in `~/Library/Application Support/MantisShrimp/history/
 make build
 make test
 make run
+make install   # builds, copies to ~/Applications and opens the app
 ```
 
 Needs the macOS command line tools with Swift 5.10 or later. Xcode is not needed.
+
+To release, tag a version and push the tag:
+
+```sh
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+CI runs the tests, builds the DMG, publishes a GitHub release and updates the Homebrew formula in [veelenga/homebrew-tap](https://github.com/veelenga/homebrew-tap).
