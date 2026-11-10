@@ -18,9 +18,9 @@ Measured against your own calibrated baseline. Distance to the camera does not m
   <img src="docs/demos/head-forward.gif" width="32%" alt="Head forward">
 </p>
 
-1. 🤔 **Tilted left**: the head leans to the left.
-2. 🤔 **Tilted right**: the head leans to the right.
-3. 🐢 **Forward**: the head pushes toward the screen, or the chin drops.
+1. **Tilted left**: the head leans to the left.
+2. **Tilted right**: the head leans to the right.
+3. **Forward**: the head pushes toward the screen, or the chin drops.
 
 ### Shoulder position
 
@@ -29,13 +29,13 @@ Measured against your own calibrated baseline. Distance to the camera does not m
   <img src="docs/demos/shoulder-raised-right.gif" width="32%" alt="Right shoulder raised">
 </p>
 
-1. 🤷 **Left shoulder raised**: the left shoulder sits higher than the right.
-2. 🤷 **Right shoulder raised**: the right shoulder sits higher than the left.
+1. **Left shoulder raised**: the left shoulder sits higher than the right.
+2. **Right shoulder raised**: the right shoulder sits higher than the left.
 
 ### Body position
 
-1. 🫠 **Slouching**: the head sinks toward the shoulders.
-2. 🔍 **Leaning in**: your whole upper body moves toward the screen.
+1. **Slouching**: the head sinks toward the shoulders.
+2. **Leaning in**: your whole upper body moves toward the screen.
 
 ## Install
 
