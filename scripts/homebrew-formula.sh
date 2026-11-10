@@ -12,6 +12,7 @@ class MantisShrimp < Formula
   url "$URL"
   version "$VERSION"
   sha256 "$SHA256"
+  license "MIT"
   head "https://github.com/veelenga/mantis-shrimp.git", branch: "main"
 
   depends_on macos: :sonoma

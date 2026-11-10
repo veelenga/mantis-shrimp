@@ -83,3 +83,7 @@ git tag v0.2.0 && git push origin v0.2.0
 ```
 
 CI runs the tests, builds the DMG, publishes a GitHub release and updates the Homebrew formula in [veelenga/homebrew-tap](https://github.com/veelenga/homebrew-tap).
+
+## License
+
+[MIT](LICENSE)
