@@ -13,13 +13,32 @@ Everything runs on your Mac. No frames are stored or sent anywhere.
 
 Measured against your own calibrated baseline. Distance to the camera does not matter.
 
-| | Case | What it means | Demo |
-| --- | --- | --- | --- |
-| 🤷 | Shoulder raised | Left or right shoulder sits higher than the other | <!-- <img src="docs/demos/shoulder-raised.gif" width="240"> --> |
-| 🤔 | Head tilted | Head leans to the left or right | <!-- <img src="docs/demos/head-tilted.gif" width="240"> --> |
-| 🐢 | Head forward | Head pushes toward the screen, or the chin drops | <!-- <img src="docs/demos/head-forward.gif" width="240"> --> |
-| 🫠 | Slouching | Head sinks toward the shoulders | <!-- <img src="docs/demos/slouching.gif" width="240"> --> |
-| 🔍 | Leaning in | Your whole upper body moves toward the screen | <!-- <img src="docs/demos/leaning-in.gif" width="240"> --> |
+### Head position
+
+<p>
+  <img src="docs/demos/head-tilted-left.gif" width="32%" alt="Head tilted left">
+  <img src="docs/demos/head-tilted-right.gif" width="32%" alt="Head tilted right">
+  <img src="docs/demos/head-forward.gif" width="32%" alt="Head forward">
+</p>
+
+1. 🤔 **Tilted left**: the head leans to the left.
+2. 🤔 **Tilted right**: the head leans to the right.
+3. 🐢 **Forward**: the head pushes toward the screen, or the chin drops.
+
+### Shoulder position
+
+<p>
+  <img src="docs/demos/shoulder-raised-left.gif" width="32%" alt="Left shoulder raised">
+  <img src="docs/demos/shoulder-raised-right.gif" width="32%" alt="Right shoulder raised">
+</p>
+
+1. 🤷 **Left shoulder raised**: the left shoulder sits higher than the right.
+2. 🤷 **Right shoulder raised**: the right shoulder sits higher than the left.
+
+### Body position
+
+1. 🫠 **Slouching**: the head sinks toward the shoulders.
+2. 🔍 **Leaning in**: your whole upper body moves toward the screen.
 
 ## How alerts work
 
