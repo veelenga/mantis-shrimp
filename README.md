@@ -34,6 +34,12 @@ With Homebrew, which builds the app on your Mac:
 
 ```sh
 brew install veelenga/tap/mantis-shrimp
+brew services start mantis-shrimp
+```
+
+The second command starts the app now and at every login, so leave the app's own **Launch at login** off. To find the app in Spotlight, link it into your Applications folder:
+
+```sh
 ln -sf "$(brew --prefix mantis-shrimp)/MantisShrimp.app" ~/Applications/
 ```
 
