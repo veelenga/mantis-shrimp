@@ -2,7 +2,7 @@
 import PostureCore
 import os
 
-final class CameraFrameSource: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+final class CameraFrameSource: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
     enum CameraError: Error {
         case accessDenied
         case noCamera
