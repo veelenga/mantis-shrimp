@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 
 APP_NAME=MantisShrimp
 BUNDLE_ID=dev.veelenga.mantisshrimp
-VERSION=${VERSION:-0.1.0}
+VERSION=${VERSION:-$(scripts/version.sh)}
 OUT=build/$APP_NAME.app
 
 swift build -c release ${SWIFT_BUILD_FLAGS:-}
