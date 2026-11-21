@@ -5,8 +5,10 @@ INSTALL_APP = $(INSTALL_DIR)/$(APP_NAME).app
 DEV_DIR = $(shell xcode-select -p)
 TESTING_FRAMEWORKS = $(DEV_DIR)/Library/Developer/Frameworks
 TESTING_LIBS = $(DEV_DIR)/Library/Developer/usr/lib
+ifneq ($(wildcard $(TESTING_FRAMEWORKS)),)
 TEST_FLAGS = -Xswiftc -F$(TESTING_FRAMEWORKS) -Xlinker -F$(TESTING_FRAMEWORKS) \
 	-Xlinker -rpath -Xlinker $(TESTING_FRAMEWORKS) -Xlinker -rpath -Xlinker $(TESTING_LIBS)
+endif
 
 .PHONY: build test app dmg run install
 
