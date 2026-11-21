@@ -14,7 +14,7 @@ final class CameraPreviewView: NSView {
     private let previewLayer: AVCaptureVideoPreviewLayer
     private let overlay = LandmarkOverlay()
     private let readout = MetricsReadoutView()
-    private lazy var calibrateButton = NSButton(title: Self.calibrateTitle, target: self, action: #selector(calibrate))
+    private let calibrateButton = VideoOverlayButton(title: calibrateTitle)
 
     init(previewLayer: AVCaptureVideoPreviewLayer) {
         self.previewLayer = previewLayer
@@ -31,7 +31,7 @@ final class CameraPreviewView: NSView {
     }
 
     private func configureCalibrateButton() {
-        calibrateButton.bezelStyle = .rounded
+        calibrateButton.onPress = { [weak self] in self?.onCalibrate?() }
         addSubview(calibrateButton)
     }
 
@@ -39,10 +39,6 @@ final class CameraPreviewView: NSView {
         calibrateButton.title = isCalibrating ? Self.calibratingTitle : Self.calibrateTitle
         calibrateButton.isEnabled = !isCalibrating
         needsLayout = true
-    }
-
-    @objc private func calibrate() {
-        onCalibrate?()
     }
 
     required init?(coder: NSCoder) {
