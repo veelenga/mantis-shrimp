@@ -12,6 +12,8 @@ struct StatsView: View {
             } else {
                 emptyState
             }
+            Spacer(minLength: 0)
+            footer
         }
         .padding(StatsLayout.windowPadding)
         .frame(minWidth: StatsLayout.minimumWidth, maxWidth: .infinity, minHeight: StatsLayout.minimumHeight, maxHeight: .infinity, alignment: .topLeading)
@@ -43,6 +45,13 @@ struct StatsView: View {
         }
         .pickerStyle(.segmented)
         .labelsHidden()
+    }
+
+    private var footer: some View {
+        Text(AppVersion.label)
+            .font(.footnote)
+            .foregroundStyle(.secondary)
+            .frame(maxWidth: .infinity, alignment: .trailing)
     }
 
     private var emptyState: some View {

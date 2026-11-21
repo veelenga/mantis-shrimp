@@ -64,16 +64,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
         menu.addItem(configure(launchAtLoginItem, title: "Launch at login", action: #selector(toggleLaunchAtLogin)))
         menu.addItem(action("Quit", #selector(quit), key: "q"))
-        menu.addItem(.separator())
-        menu.addItem(label(AppVersion.menuTitle))
         return menu
-    }
-
-    private func label(_ title: String) -> NSMenuItem {
-        let entry = NSMenuItem()
-        entry.title = title
-        entry.isEnabled = false
-        return entry
     }
 
     private func action(_ title: String, _ selector: Selector, key: String = "") -> NSMenuItem {

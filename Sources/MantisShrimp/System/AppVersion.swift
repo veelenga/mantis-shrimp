@@ -2,11 +2,11 @@ import Foundation
 
 enum AppVersion {
     private static let versionKey = "CFBundleShortVersionString"
-    private static let unbundledTitle = "Development build"
+    private static let unbundledLabel = "Development build"
 
-    static var menuTitle: String {
+    static var label: String {
         guard let version = Bundle.main.object(forInfoDictionaryKey: versionKey) as? String else {
-            return unbundledTitle
+            return unbundledLabel
         }
         return "Version \(version)"
     }
