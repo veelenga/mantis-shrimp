@@ -30,6 +30,7 @@ final class StatsWindowController {
             defer: false
         )
         window.title = Self.title
+        window.subtitle = AppVersion.label
         window.isReleasedWhenClosed = false
         window.contentViewController = makeHostingController()
         window.setContentSize(StatsLayout.initialSize)
