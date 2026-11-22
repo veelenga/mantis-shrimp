@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MantisShrimp: don't be a shrimp</title>
+<meta name="description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips. Everything runs on your Mac.">
+<meta name="theme-color" content="#E8EDF2">
+<link rel="canonical" href="https://veelenga.github.io/mantis-shrimp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MantisShrimp">
+<meta property="og:title" content="MantisShrimp: don't be a shrimp">
+<meta property="og:description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.">
+<meta property="og:url" content="https://veelenga.github.io/mantis-shrimp/">
+<meta property="og:image" content="https://veelenga.github.io/mantis-shrimp/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MantisShrimp: don't be a shrimp">
+<meta name="twitter:description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.">
+<meta name="twitter:image" content="https://veelenga.github.io/mantis-shrimp/img/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/source-serif-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/styles.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header wrap">
+  <a class="brand" href="#top"><img src="img/icon.png" alt="" width="44" height="44"><span>MantisShrimp</span></a>
+  <nav aria-label="Main">
+    <a href="#catches">What it catches</a>
+    <a href="#nudges">How it nudges</a>
+    <a href="#install">Install</a>
+    <a class="nav-extra" href="https://github.com/veelenga/mantis-shrimp">GitHub</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section id="top" class="hero wrap" data-hero>
+    <div class="hero-copy">
+      <p class="tag">Fig. 1 · The desk shrimp</p>
+      <h1>Don't be a&nbsp;shrimp<span class="dot">.</span></h1>
+      <p class="lede">A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.</p>
+      <div class="actions">
+        <a class="button button-primary" href="#install">Install with Homebrew</a>
+        <a class="button button-secondary" href="https://github.com/veelenga/mantis-shrimp/releases/latest">Download the DMG</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="stage-card">
+        <div class="stage"><svg role="img" aria-label="Side view of a person sitting upright at a desk"></svg><div class="notes"></div></div>
+        <div class="stage-bar">
+          <p class="status" data-status data-state="good"><span class="status-dot" aria-hidden="true"></span><span data-status-text>Good posture</span></p>
+          <button class="button button-small" type="button" data-toggle>Pause</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catches" class="section wrap" data-explorer>
+    <div class="section-head">
+      <p class="tag">Fig. 2 · What it catches</p>
+      <h2>Seven ways to shrimp</h2>
+      <p class="lede">Measured against your own calibrated baseline. Distance to the camera does not matter.</p>
+    </div>
+    <div class="explorer">
+      <div class="explorer-stage">
+        <div class="stage-card">
+          <p class="stage-tag" data-view-tag aria-live="polite">Side view · the faded outline is your baseline</p>
+          <div class="stage" data-figure="side"><svg role="img" aria-label="Side view of a person at a desk"></svg><div class="notes"></div></div>
+          <div class="stage" data-figure="front" hidden><svg role="img" aria-label="Front view of a person at a desk"></svg><div class="notes"></div></div>
+        </div>
+      </div>
+      <div class="issues">
+        <div class="issue-group" role="group" aria-labelledby="group-head">
+          <h3 id="group-head">Head</h3>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="front" data-pose="headTiltedLeft" data-mark="tilt"><span class="issue-name">Head tilted left</span><span class="issue-desc">The head leans to the left.</span></button>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="front" data-pose="headTiltedRight" data-mark="tilt"><span class="issue-name">Head tilted right</span><span class="issue-desc">The head leans to the right.</span></button>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="side" data-pose="headForward" data-mark="head"><span class="issue-name">Head forward</span><span class="issue-desc">The head pushes toward the screen, or the chin drops.</span></button>
+        </div>
+        <div class="issue-group" role="group" aria-labelledby="group-shoulders">
+          <h3 id="group-shoulders">Shoulders</h3>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="front" data-pose="leftShoulderRaised" data-mark="liftLeft"><span class="issue-name">Left shoulder raised</span><span class="issue-desc">The left shoulder sits higher than the right.</span></button>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="front" data-pose="rightShoulderRaised" data-mark="liftRight"><span class="issue-name">Right shoulder raised</span><span class="issue-desc">The right shoulder sits higher than the left.</span></button>
+        </div>
+        <div class="issue-group" role="group" aria-labelledby="group-body">
+          <h3 id="group-body">Body</h3>
+          <button class="issue" type="button" aria-pressed="true" data-issue data-view="side" data-pose="slouching" data-mark="back"><span class="issue-name">Slouching</span><span class="issue-desc">The head sinks toward the shoulders.</span></button>
+          <button class="issue" type="button" aria-pressed="false" data-issue data-view="side" data-pose="leaningIn" data-mark="head"><span class="issue-name">Leaning in</span><span class="issue-desc">Your whole upper body moves toward the screen.</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="panel">
+      <div class="panel-figure" data-calibrate>
+        <div class="stage"><svg role="img" aria-label="Side view of a person sitting upright at a desk"></svg></div>
+      </div>
+      <div class="panel-copy">
+        <p class="tag">Fig. 3 · Calibrate</p>
+        <h2>Sit well once. It remembers.</h2>
+        <p>Choose Calibrate while sitting well, and the app saves your good posture as the baseline. Everything is measured against it, so distance to the camera does not matter.</p>
+        <p>Everything runs on your Mac. No frames are stored or sent anywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nudges" class="section wrap">
+    <div class="section-head">
+      <p class="tag">How it nudges</p>
+      <h2>A nudge, not a nag</h2>
+    </div>
+    <ol class="rules">
+      <li><span class="rule-number">10<span class="unit"> s</span></span><p>An issue counts after 10 seconds and clears 2 seconds after you fix it.</p></li>
+      <li><span class="rule-number">1<span class="unit"> min</span></span><p>One minute of bad posture within three minutes shows an orange banner. Click it to snooze for 5 minutes.</p></li>
+      <li><span class="rule-number">50<span class="unit"> min</span></span><p>After 50 minutes without a 2 minute break, a banner asks you to stand up.</p></li>
+    </ol>
+    <ul class="chips" aria-label="Menu bar figure colours">
+      <li><span class="chip chip-green"><img src="img/glyph-tall-navy.png" alt="" width="36" height="36"></span><span>Posture is good</span></li>
+      <li><span class="chip chip-orange"><img src="img/glyph-tall-navy.png" alt="" width="36" height="36"></span><span>Posture is off</span></li>
+      <li><span class="chip chip-white"><img src="img/glyph-tall-navy.png" alt="" width="36" height="36"></span><span>Nobody is in frame</span></li>
+    </ul>
+    <p class="note-box">The camera runs at its lowest frame rate and posture is checked twice per second, less when nobody is there or Low Power Mode is on. It stops while the screen is asleep or locked.</p>
+  </section>
+
+  <section id="install" class="section wrap">
+    <div class="install">
+      <div class="install-copy" data-install>
+      <p class="tag tag-coral">Install</p>
+      <h2>Two lines in Terminal</h2>
+      <div class="command-box">
+        <pre data-copy-source><code>brew install veelenga/tap/mantis-shrimp
+brew services start mantis-shrimp</code></pre>
+        <button class="button button-primary" type="button" data-copy hidden>Copy</button>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+      <p>Allow camera access on first launch, then choose Calibrate while sitting well.</p>
+      <p>Prefer a DMG? Download the <a href="https://github.com/veelenga/mantis-shrimp/releases/latest">latest release</a>. The app is not notarized, so macOS blocks the first launch. Open System Settings, Privacy &amp; Security, and click Open Anyway.</p>
+      <p><a href="https://github.com/veelenga/mantis-shrimp#install">Full instructions in the README</a></p>
+      </div>
+      <img class="install-mascot" src="img/shrimp-tall.png" alt="" width="300" height="300" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <div class="footer-text">
+    <span>MantisShrimp · a quiet menu bar app</span>
+    <a href="https://github.com/veelenga/mantis-shrimp/blob/main/LICENSE">Released under the MIT license</a>
+    <a href="https://github.com/veelenga/mantis-shrimp">GitHub</a>
+  </div>
+  <div class="footer-mascots" aria-hidden="true">
+    <img src="img/shrimp-tall.png" alt="" width="56" height="56" loading="lazy">
+    <img src="img/shrimp-curled.png" alt="" width="56" height="56" loading="lazy">
+  </div>
+</footer>
+</body>
+</html>
