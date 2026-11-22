@@ -7,6 +7,7 @@ enum PostureReportText {
         let report: PostureReport
         let generatedAt: Date
         let calendar: Calendar
+        let appVersion: String
     }
 
     private static let minutesFormat = "%.1f"
@@ -36,7 +37,7 @@ enum PostureReportText {
         return """
         # Posture report (\(input.range.title))
 
-        Generated \(input.generatedAt.formatted(hourFormat(calendar))) by MantisShrimp, a macOS app that reads posture from the webcam with Apple Vision.
+        Generated \(input.generatedAt.formatted(hourFormat(calendar))) by MantisShrimp (\(input.appVersion)), a macOS app that reads posture from the webcam with Apple Vision.
         Range: \(interval.start.formatted(dayFormat(calendar))) to \(interval.end.addingTimeInterval(-1).formatted(dayFormat(calendar))).
 
         How to read this: "monitored" is time the app could see the shoulders. "good" is monitored time with no issue. "not measured" is time the app ran but could not read posture (nobody in frame or calibrating). An issue counts only after it persisted for \(Int(MonitorTiming.Detection.onsetDelay)) seconds. Several issues can overlap, so issue times may add up to more than the monitored time. Left and right refer to the person's own body. Durations are in minutes.
