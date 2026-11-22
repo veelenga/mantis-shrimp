@@ -6,6 +6,7 @@ import SwiftUI
 final class StatsWindowController {
     private static let title = "Posture statistics"
     private static let styleMask: NSWindow.StyleMask = [.titled, .closable, .miniaturizable, .resizable]
+    private static let titleBarOwnedByWindow: NSHostingSceneBridgingOptions = []
 
     private let model: StatsViewModel
     private var window: NSWindow?
@@ -30,6 +31,7 @@ final class StatsWindowController {
             defer: false
         )
         window.title = Self.title
+        window.subtitle = AppVersion.label
         window.isReleasedWhenClosed = false
         window.contentViewController = makeHostingController()
         window.setContentSize(StatsLayout.initialSize)
@@ -40,6 +42,7 @@ final class StatsWindowController {
     private func makeHostingController() -> NSHostingController<StatsView> {
         let controller = NSHostingController(rootView: StatsView(model: model))
         controller.sizingOptions = [.minSize]
+        controller.sceneBridgingOptions = Self.titleBarOwnedByWindow
         return controller
     }
 }

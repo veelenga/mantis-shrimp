@@ -27,7 +27,13 @@ final class StatsViewModel {
     }
 
     func copyReport(now: Date = Date()) {
-        let input = PostureReportText.Input(range: range, report: report, generatedAt: now, calendar: calendar)
+        let input = PostureReportText.Input(
+            range: range,
+            report: report,
+            generatedAt: now,
+            calendar: calendar,
+            appVersion: AppVersion.label
+        )
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
         pasteboard.setString(PostureReportText.markdown(input), forType: .string)

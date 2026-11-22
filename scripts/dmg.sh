@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 APP_NAME=MantisShrimp
-VERSION=${VERSION:-0.1.0}
+VERSION=${VERSION:-$(scripts/version.sh)}
 APP=build/$APP_NAME.app
 STAGING=build/dmg
 DMG_NAME=$APP_NAME-$VERSION.dmg
