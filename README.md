@@ -4,6 +4,7 @@
   <p><strong>Don't be a shrimp.</strong></p>
   <p>A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.</p>
   <p>Everything runs on your Mac. No frames are stored or sent anywhere.</p>
+  <p><a href="https://veelenga.github.io/mantis-shrimp/">Website</a></p>
 </div>
 
 ## What it detects
