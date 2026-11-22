@@ -3,6 +3,8 @@ import PostureCore
 
 @MainActor
 final class StatusBarController: NSObject, NSMenuDelegate {
+    private static let menuWidth: CGFloat = 360
+
     private let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     private let monitor: PostureMonitor
     private let statsWindow: StatsWindowController
@@ -16,7 +18,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         onSelect: { [weak self] sensitivity in
             guard let self else { return }
             monitor.setSensitivity(sensitivity)
-            renderMenu(monitor.snapshot)
+            renderOptions(monitor.snapshot)
         }
     )
     private lazy var alertDelayMenu = OptionSubmenu<AlertDelay>(
@@ -31,10 +33,11 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         onSelect: { [weak self] framing in
             guard let self else { return }
             monitor.setCameraFraming(framing)
-            renderMenu(monitor.snapshot)
+            renderOptions(monitor.snapshot)
         }
     )
     private var isMenuOpen = false
+    private var statusLineWidth: CGFloat = 0
     private var iconKey: StatusIcon.Key?
 
     init(monitor: PostureMonitor, statsWindow: StatsWindowController, cameraWindow: CameraWindowController) {
@@ -81,7 +84,9 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     func menuWillOpen(_ menu: NSMenu) {
         isMenuOpen = true
-        renderMenu(monitor.snapshot)
+        renderOptions(monitor.snapshot)
+        statusLineWidth = MenuWidthLock.lock(menu, to: Self.menuWidth, flexibleItem: statusLine)
+        renderStatusLine(monitor.snapshot, in: menu)
     }
 
     func menuDidClose(_ menu: NSMenu) {
@@ -90,8 +95,9 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     private func render(_ snapshot: MonitorSnapshot) {
         renderIcon(snapshot)
-        if isMenuOpen {
-            renderMenu(snapshot)
+        if isMenuOpen, let menu = item.menu {
+            renderStatusLine(snapshot, in: menu)
+            renderOptions(snapshot)
         }
     }
 
@@ -102,8 +108,14 @@ final class StatusBarController: NSObject, NSMenuDelegate {
         item.button?.image = StatusIcon.image(for: key)
     }
 
-    private func renderMenu(_ snapshot: MonitorSnapshot) {
-        statusLine.title = StatusText.line(for: snapshot)
+    private func renderStatusLine(_ snapshot: MonitorSnapshot, in menu: NSMenu) {
+        let line = StatusText.line(for: snapshot)
+        let fitted = TailTruncation.fit(line, width: statusLineWidth, font: menu.font)
+        statusLine.title = fitted
+        statusLine.toolTip = fitted == line ? nil : line
+    }
+
+    private func renderOptions(_ snapshot: MonitorSnapshot) {
         pauseItem.title = snapshot.phase == .paused ? "Resume" : "Pause"
         launchAtLoginItem.state = LaunchAtLogin.isEnabled ? .on : .off
         sensitivityMenu.update(selected: monitor.settings.sensitivity)
@@ -129,7 +141,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     @objc private func toggleLaunchAtLogin() {
         try? LaunchAtLogin.setEnabled(!LaunchAtLogin.isEnabled)
-        renderMenu(monitor.snapshot)
+        renderOptions(monitor.snapshot)
     }
 
     @objc private func quit() {
