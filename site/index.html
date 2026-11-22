@@ -3,20 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MantisShrimp: don't be a shrimp</title>
-<meta name="description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips. Everything runs on your Mac.">
+<title>MantisShrimp: posture reminder app for Mac</title>
+<meta name="description" content="Free, open source Mac menu bar app that watches your posture through the camera and reminds you to sit up when you slouch. Everything runs on your Mac.">
 <meta name="theme-color" content="#E8EDF2">
 <link rel="canonical" href="https://veelenga.github.io/mantis-shrimp/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MantisShrimp">
-<meta property="og:title" content="MantisShrimp: don't be a shrimp">
-<meta property="og:description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.">
+<meta property="og:title" content="MantisShrimp: posture reminder app for Mac">
+<meta property="og:description" content="Free, open source Mac menu bar app that watches your posture through the camera and reminds you to sit up when you slouch. Everything runs on your Mac.">
 <meta property="og:url" content="https://veelenga.github.io/mantis-shrimp/">
 <meta property="og:image" content="https://veelenga.github.io/mantis-shrimp/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MantisShrimp: don't be a shrimp">
-<meta name="twitter:description" content="A quiet menu bar app that watches your posture through the Mac camera and nudges you when it slips.">
+<meta name="twitter:title" content="MantisShrimp: posture reminder app for Mac">
+<meta name="twitter:description" content="Free, open source Mac menu bar app that watches your posture through the camera and reminds you to sit up when you slouch. Everything runs on your Mac.">
 <meta name="twitter:image" content="https://veelenga.github.io/mantis-shrimp/img/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MantisShrimp",
+  "description": "Free, open source Mac menu bar app that watches your posture through the camera and reminds you to sit up when you slouch. Everything runs on your Mac.",
+  "url": "https://veelenga.github.io/mantis-shrimp/",
+  "image": "https://veelenga.github.io/mantis-shrimp/img/og.png",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "macOS 14 or later",
+  "downloadUrl": "https://github.com/veelenga/mantis-shrimp/releases/latest",
+  "license": "https://github.com/veelenga/mantis-shrimp/blob/main/LICENSE",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Vitalii Elenhaupt",
+    "url": "https://github.com/veelenga"
+  }
+}
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/source-serif-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -122,7 +147,21 @@
       <li><span class="chip chip-orange"><img src="img/glyph-tall-navy.png" alt="" width="36" height="36"></span><span>Posture is off</span></li>
       <li><span class="chip chip-white"><img src="img/glyph-tall-navy.png" alt="" width="36" height="36"></span><span>Nobody is in frame</span></li>
     </ul>
-    <p class="note-box">The camera runs at its lowest frame rate and posture is checked twice per second, less when nobody is there or Low Power Mode is on. It stops while the screen is asleep or locked.</p>
+  </section>
+
+  <section id="faq" class="section wrap">
+    <div class="section-head">
+      <p class="tag">Questions</p>
+      <h2>Before you ask</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><h3>Does it record me?</h3><p>No. Each camera frame is checked on your Mac and dropped right away. Nothing is stored or sent, and the app never goes online. It only keeps one line of numbers per minute for your statistics, in a folder on your Mac.</p></div>
+      <div class="faq-item"><h3>Is the camera light always on?</h3><p>Yes, while the app is watching. macOS shows the green light whenever an app uses the camera. Choose Pause in the menu and the light goes off.</p></div>
+      <div class="faq-item"><h3>How much battery does it use?</h3><p>Very little. The camera runs at its lowest frame rate and posture is checked twice per second, less when nobody is there or Low Power Mode is on. It stops while the screen is asleep or locked.</p></div>
+      <div class="faq-item"><h3>Does it work with an external webcam?</h3><p>It uses the default camera of your Mac. On a MacBook that is the built-in one, and on a desktop Mac it is the webcam you plugged in. There is no camera picker yet.</p></div>
+      <div class="faq-item"><h3>Which macOS do I need?</h3><p>macOS 14 Sonoma or later.</p></div>
+      <div class="faq-item"><h3>Is it free?</h3><p>Yes. MantisShrimp is free and open source under the MIT license. The code is on <a href="https://github.com/veelenga/mantis-shrimp">GitHub</a>.</p></div>
+    </div>
   </section>
 
   <section id="install" class="section wrap">

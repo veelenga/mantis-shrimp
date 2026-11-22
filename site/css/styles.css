@@ -176,7 +176,7 @@ h3 { margin: 0; font: 700 17px/1.1 var(--sans); letter-spacing: 0.01em; }
   .rules li { grid-template-columns: 260px minmax(0, 1fr); }
 }
 
-.chips { display: grid; gap: 16px; margin: 0 0 32px; padding: 0; list-style: none; }
+.chips { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .chips li { display: flex; align-items: center; gap: 14px; font: 700 18px/1.1 var(--sans); }
 .chip { display: grid; place-items: center; width: 64px; height: 64px; border: var(--border); flex: none; }
 .chip-green { background: var(--chip-green); }
@@ -186,7 +186,14 @@ h3 { margin: 0; font: 700 17px/1.1 var(--sans); letter-spacing: 0.01em; }
   .chips { grid-template-columns: repeat(3, auto); justify-content: start; gap: 16px 32px; }
 }
 
-.note-box { max-width: 720px; padding: 16px 20px; background: var(--paper); border: var(--border); }
+.faq { background: var(--paper); border: var(--border); }
+.faq-item { display: grid; gap: 8px 32px; align-items: start; padding: 20px 24px; }
+.faq-item + .faq-item { border-top: var(--border); }
+.faq h3 { font: 700 24px/1.15 var(--serif); letter-spacing: -0.01em; }
+.faq p { max-width: 640px; }
+@media (min-width: 700px) {
+  .faq-item { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+}
 
 .install { display: grid; gap: 32px; align-items: center; padding: clamp(24px, 4vw, 48px); background: var(--ink); color: var(--ground); }
 .install-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
