@@ -7,6 +7,7 @@ import PostureCore
 @Observable
 final class StatsViewModel {
     var range: StatsRange = .today
+    var isConfirmingReset = false
     private(set) var report = PostureReport.empty
 
     @ObservationIgnored private let store: PostureHistoryStore
