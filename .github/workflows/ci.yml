@@ -14,9 +14,25 @@ concurrency:
 
 jobs:
   test:
-    runs-on: macos-15
+    name: Test (${{ matrix.toolchain }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - toolchain: Xcode 16
+            runner: macos-15
+            developer_dir: /Applications/Xcode.app/Contents/Developer
+          - toolchain: command line tools 27
+            runner: xcode-27
+            developer_dir: /Library/Developer/CommandLineTools
+    env:
+      DEVELOPER_DIR: ${{ matrix.developer_dir }}
     steps:
       - uses: actions/checkout@v5
+
+      - name: Show toolchain
+        run: swift --version
 
       - name: Test
         run: make test
