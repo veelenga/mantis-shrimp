@@ -2,7 +2,6 @@ import SwiftUI
 
 struct StatsView: View {
     @Bindable var model: StatsViewModel
-    @State private var isConfirmingReset = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: StatsLayout.sectionSpacing) {
@@ -16,7 +15,7 @@ struct StatsView: View {
         .padding(StatsLayout.windowPadding)
         .frame(minWidth: StatsLayout.minimumWidth, maxWidth: .infinity, minHeight: StatsLayout.minimumHeight, maxHeight: .infinity, alignment: .topLeading)
         .onChange(of: model.range) { model.load() }
-        .confirmationDialog("Delete all posture history?", isPresented: $isConfirmingReset) {
+        .confirmationDialog("Delete all posture history?", isPresented: $model.isConfirmingReset) {
             Button("Delete history", role: .destructive) { model.resetHistory() }
         } message: {
             Text("This removes every recorded minute and cannot be undone.")
@@ -30,7 +29,7 @@ struct StatsView: View {
             Button("Copy stats") { model.copyReport() }
                 .disabled(!model.hasData)
                 .help("Copies a Markdown report of this range to paste into an AI assistant")
-            Button("Reset…") { isConfirmingReset = true }
+            Button("Reset…") { model.isConfirmingReset = true }
                 .disabled(!model.hasData)
         }
     }
