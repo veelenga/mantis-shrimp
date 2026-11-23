@@ -47,7 +47,7 @@ brew install veelenga/tap/mantis-shrimp
 brew services start mantis-shrimp
 ```
 
-The second command starts the app now and at every login, so leave the app's own **Launch at login** off. To find the app in Spotlight, link it into your Applications folder:
+The second command starts the app now and at every login, so leave the app's own **Launch at login** off. After an update, or if you quit the app, run `brew services restart mantis-shrimp`. To find the app in Spotlight, link it into your Applications folder:
 
 ```sh
 ln -sf "$(brew --prefix mantis-shrimp)/MantisShrimp.app" ~/Applications/

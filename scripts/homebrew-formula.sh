@@ -36,6 +36,9 @@ class MantisShrimp < Formula
       Start the app now and at every login:
         brew services start mantis-shrimp
 
+      After an update, or if you quit the app, start it again with:
+        brew services restart mantis-shrimp
+
       Leave the app's own "Launch at login" off; brew services already handles it.
       To find the app in Spotlight, link it into your Applications folder:
         ln -sf #{opt_prefix}/MantisShrimp.app ~/Applications/
